@@ -18,3 +18,5 @@ These are mostly things that are just super minor and do not contribute to the o
 pnpm i
 pnpm run dev
 ```
+
+To run tests, use `pnpm run test`.
