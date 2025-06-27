@@ -58,10 +58,7 @@
 	/>
 	<Checkbox
 		label="I’d like to get writing tips, inspiration, and promotions via email"
-		name="fakeCheckbox"
-		value={formState.personalInfo.getTips}
-		checkValueAgainst={formState.personalInfo.getTips}
-		onSelect={(/** @type {boolean} */ value) => (formState.personalInfo.getTips = value)}
+		bind:value={formState.personalInfo.getTips}
 	/>
 </div>
 

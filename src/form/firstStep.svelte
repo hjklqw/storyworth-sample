@@ -5,10 +5,6 @@
 
 	import { formState, ForWho, FormStep } from '../state/form.svelte';
 
-	function selectRadio(value: ForWho) {
-		formState.who = value;
-	}
-
 	function submitStep() {
 		if (formState.who === ForWho.SomeoneElse) {
 			formState.step = FormStep.SetGiftRecipient;
@@ -25,16 +21,9 @@
 		label="Someone else will"
 		name="who"
 		value={ForWho.SomeoneElse}
-		checkValueAgainst={formState.who}
-		onSelect={selectRadio}
+		bind:variable={formState.who}
 	/>
-	<Radio
-		label="I will"
-		name="who"
-		value={ForWho.Me}
-		checkValueAgainst={formState.who}
-		onSelect={selectRadio}
-	/>
+	<Radio label="I will" name="who" value={ForWho.Me} bind:variable={formState.who} />
 </div>
 
 <Button label="Continue" onClick={submitStep} isDisabled={formState.who === ForWho.None} />

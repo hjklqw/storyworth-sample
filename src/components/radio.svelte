@@ -1,15 +1,14 @@
 <script>
-	let { label, name, value, checkValueAgainst, onSelect } = $props();
+	let { label, name, value, variable = $bindable() } = $props();
 </script>
 
 <label
 	class="px-4 py-2 has-[:checked]:bg-yellow-100 hover:bg-yellow-100 border border-yellow-500 rounded-md flex gap-2 text-lg cursor-pointer"
-	onchange={() => onSelect(value)}
 >
 	<input
 		{name}
 		{value}
-		defaultChecked={checkValueAgainst === value}
+		bind:group={variable}
 		type="radio"
 		class="relative appearance-none shrink-0 w-4 h-4 rounded-full border border-2 border-yellow-800 self-center peer"
 	/>

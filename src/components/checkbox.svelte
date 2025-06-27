@@ -1,15 +1,16 @@
-<script>
-	let { label, name, value, checkValueAgainst, onSelect } = $props();
+<script lang="ts">
+	let {
+		label,
+		value = $bindable()
+	}: {
+		label: string;
+		value: boolean;
+	} = $props();
 </script>
 
-<label
-	class="px-4 py-2 hover:bg-yellow-100 border border-yellow-500 rounded-md flex gap-2"
-	onchange={() => onSelect(value)}
->
+<label class="px-4 py-2 hover:bg-yellow-100 border border-yellow-500 rounded-md flex gap-2">
 	<input
-		{name}
-		{value}
-		defaultChecked={checkValueAgainst === value}
+		bind:checked={value}
 		type="checkbox"
 		class="flex relative appearance-none shrink-0 w-4 h-4 rounded-sm border border-2 border-yellow-800 self-center peer checked:bg-yellow-800"
 	/>
